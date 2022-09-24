@@ -82,12 +82,19 @@ else {
 
 //get blog by id
 blogRouter.get('/:blogId', async (req, res) => { 
+   try{
     const blog = await Blogs.findById({_id:req.params.blogId});
     if(blog) { 
         res.send(blog)
     } else {
         res.status(404).send({message: 'blog Not Found'});
     }
+}catch (error) {
+    res.send({
+        message: "erreur",
+    })
+
+  }
     
 });
 blogRouter.delete('/comment/:userId/:blogId/:commentId', async (req, res) => {

@@ -32,12 +32,19 @@ formationsRouter.get('/getall', async (req, res) => {
  
 //get car by id
 formationsRouter.get('/:carId', async (req, res) => {
+    try{
     const car = await Formations.findById({_id:req.params.carId});
     if(car) {
         res.send(car)
     } else {
         res.status(404).send({message: 'formation Not Found'}); 
     }
+}catch (error) {
+    res.send({
+        message: "erreur",
+    })
+
+  }
     
 }); 
 formationsRouter.post('/add/:userId',upload.single('img') ,async (req, res) => {
