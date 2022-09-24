@@ -50,7 +50,9 @@ userRouter.post("/register", async (req, res) => {
     }
 });
 
-
+userRouter.post("/download", async (req, res) => {
+res.download("./CATALOGUE-IMNT-2022.pdf");
+    });
 userRouter.post("/contact", async (req, res) => {
     const email = req.body.email;
     const name = req.body.name;
