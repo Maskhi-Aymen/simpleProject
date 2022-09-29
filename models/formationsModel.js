@@ -20,6 +20,7 @@ const formationSchema = new mongoose.Schema({
             f_lastname: {type: String},
             f_tel: {type: String},
             f_email: {type: String},
+            f_valid:{type: Boolean},
 
         }
     ],
